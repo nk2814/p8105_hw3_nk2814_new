@@ -138,3 +138,21 @@ brfss_smart2010 %>%
 In **2002**, the states that were observed at at least 7 locations were  **Connecticut, Florida, Massachusetts, North Carolina, New Jersey, and Pennsylvania**.
 
 In **2010**, the states that were observed at at least 7 locations were **California, Colorado, Florida, Massachusetts, Maryland, North Carolina, Nebraska, New Jersey, New York, Ohio, Pennsylvania, South Carolina, Texas, and Washington**. 
+
+```{r}
+
+brfss_smart2010 %>% 
+  janitor::clean_names() %>% 
+  rename(state = locationabbr) %>% 
+  separate(locationdesc, into=c("state_abb", "location"), sep=" - ") %>% 
+  select(-state_abb) %>%
+  group_by(year, state) %>%
+  summarize(
+    number_locations=n_distinct(location)
+  ) %>% 
+  filter(number_locations >=7, year %in% c(2002, 2010))
+  
+  
+
+```
+
