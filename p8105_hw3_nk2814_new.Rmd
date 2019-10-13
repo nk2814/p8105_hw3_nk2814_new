@@ -220,5 +220,27 @@ p3_accel =
 This dataset captures five weeks of accelerometer data collected on a 63 year-old male with BMI 25; the data captures the patient's accelerometer activity in each minute of each day over the course of those 5 weeks. The main variables of interest are 'week, 'day', 'minute', and 'activity'. The number of observations in this dataset is `r nrow(p3_accel) ` observations. Each row consists of an activity count from a single minute. There is also a variable 'week_part' that indicates whether the observation took place on a weekday or a weekend. 
 
 
+--------------
+
+Using your tidied dataset, aggregate accross minutes to create a total activity variable for each day, and create a table showing these totals. 
+
+**Are any trends apparent?**
+
+Overall, there isn't a particularly distinct pattern that is apparent just from looking at this table. However, a few things stand out. Across the 5 weeks, the patient's total activity on Tuesdays and Wednesdays tend to be relatively consistent, whereas on the other days of the week, there's a lot of week-by-week variation in the daily activity. Additionally, something notable is that on Saturday of both Week 4 and Week 4, the total activity is very, very low (1440) compared to all the other days in this dataset. 
+
+
+
+```{r}
+
+p3_accel %>% 
+  group_by(week, day) %>% 
+  summarize(total_day_activity = sum(activity)) %>% 
+  pivot_wider(names_from = day, values_from=total_day_activity)
+
+
+```
+
+
+
 
 
