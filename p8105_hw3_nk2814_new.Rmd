@@ -235,7 +235,8 @@ Overall, there isn't a particularly distinct pattern that is apparent just from 
 p3_accel %>% 
   group_by(week, day) %>% 
   summarize(total_day_activity = sum(activity)) %>% 
-  pivot_wider(names_from = day, values_from=total_day_activity)
+  pivot_wider(names_from = day, values_from=total_day_activity) %>% 
+  knitr::kable()
 
 
 ```
