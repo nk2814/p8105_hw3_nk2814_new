@@ -56,8 +56,8 @@ instacart %>%
   ) %>% 
   arrange(desc(number_orders)) %>% 
   filter(number_orders > 10000) %>% 
-  ggplot(aes(x=aisle, y=number_orders, fill=aisle))+
-  geom_col()+ theme(axis.text.x = element_text(angle = 90))
+  ggplot(aes(x=aisle, y=number_orders))+
+  geom_point() + theme(axis.text.x = element_text(angle = 90))
   
 
 ```
