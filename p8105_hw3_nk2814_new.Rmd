@@ -191,5 +191,11 @@ brfss_smart2010 %>%
 
 ```
 
+### Problem 3
+
+Load, tidy, and otherwise wrangle the data. Your final dataset should include all originally observed variables and values; have useful variable names; include a weekday vs weekend variable; and encode data with reasonable variable classes. 
+
+
+
 
 
