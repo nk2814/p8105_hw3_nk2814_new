@@ -240,7 +240,15 @@ p3_accel %>%
 
 ```
 
+Make a single-panel plot that shows the 24-hour activity time courses for each day and use color to indicate day of the week. Describe in words any patterns or conclusions you can make based on this graph.
 
+```{r}
+
+p3_accel %>% 
+  ggplot(aes(x=minute, y=activity, color=day)) + geom_smooth(se=FALSE)
+```
+
+Based on this graph, it's apparent that the most significant spikes in activity occur on Friday and Sunday. On each day, around minute=250, the patient's activity begins to climb, but then remains relatively stable from minute=500 to minute=1000. At around minute=1250, across most of the days, the total activity sharply plummets. However, on Sundays, total activity for this patient begins to drop at around minute=1000. 
 
 
 
